@@ -78,6 +78,60 @@ reversedPresidents // artık bir dizi değildir....
 
 var ogrenci=["ahmet eren","kaplan","2132555","Bilgisayar Müh.","Swfit_Developer"]
 
+let ogrenciDic=["name":"ahmet eren","surname":"kaplan","number":"2132555","bolum":"bilgisayar muh","alan":"swift_developer"]
+ogrenciDic["name"]
+ogrenciDic["alan"]
 
 
+let employee2 = [
+    "name": "Taylor Swift",
+    "job": "Singer",
+    "location": "Nashville"
+]
+
+print(employee2["name", default: "Unknown"])
+print(employee2["job", default: "Unknown"])
+print(employee2["location", default: "Unknown"])
+// eger istenilen datanın bir karşılıgı yoksa unknown döner
+
+let hasGraduated = [
+    "Eric": false,
+    "Maeve": true,
+    "Otis": false,
+]
+
+let olympics = [
+    2012: "London",
+    2016: "Rio de Janeiro",
+    2021: "Tokyo"
+]
+
+print(olympics[2012, default: "Unknown"])
+
+var famAges = [String:Int]()
+famAges["eren"]=22
+famAges["nida"]=22
+print( famAges["nida"] )
+
+
+// 3-) Sets
+let people = Set(["Denzel Washington", "Tom Cruise", "Nicolas Cage", "Samuel L Jackson"])
+print(people.count)
+print(people)
+var fam=Set<String>()
+// insert kümeye veri ekler
+fam.insert("eren")
+fam.insert("nida")
+print(fam)
+print(fam.contains("nida"))
+
+
+// 4-) Enums : Değişmeyecek şeyleri sıralı saklamın en iyi yollarından biiri
+enum Weekday {
+    case Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+}
+var day=Weekday.Monday
+print(day)
+day=Weekday.Tuesday
+print(day)
 
