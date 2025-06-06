@@ -2,7 +2,7 @@ import Cocoa
 
 //Conditions
 
-// 1-) If
+// 1-) If-Else-Else If
 
 var vize=20
 var final=69
@@ -92,3 +92,91 @@ else if arac == .helikopter || arac == .uçak{
 else{
 print("    yürürken dinlen ")
 }
+// 2-) Switch-Key
+enum Weather{
+    case sun , rain , snow , wind , unknown
+}
+let forecast = Weather.sun
+
+switch forecast {
+case .sun :
+    print("hava çok sıcak")
+case .rain :
+    print("şemsiye almalısın")
+case .snow :
+    print("şemsiye almalısın")
+case .wind :
+    print("şemsiye almalısın")
+case .unknown :
+    print("şemsiye almalısın")
+
+}
+
+let place="ankara"
+
+switch place {
+case "izmir" :
+    print("konya'dan uzak mı?")
+case "konya" :
+    print("ankara'dan uzak mı?")
+default :
+    print("nerdesin sen ???")
+}
+
+let day=5
+print("My true love gave to me…")
+switch day {
+case 5:
+    print("5 golden rings")
+case 4:
+    print("4 calling birds")
+case 3:
+    print("3 French hens")
+case 2:
+    print("2 turtle doves")
+default:
+    print("A partridge in a pear tree")
+}
+
+let days = 5
+print("My true love gave to me…")
+
+switch days {
+case 5:
+    print("5 golden rings")
+    fallthrough //bir case bloğunun işlem bittikten sonra bir sonraki case’e geçmesini sağlamak için
+case 4:
+    print("4 calling birds")
+    fallthrough
+case 3:
+    print("3 French hens")
+    fallthrough
+case 2:
+    print("2 turtle doves")
+    fallthrough
+default:
+    print("A partridge in a pear tree")
+}
+
+// 3-) Conditional operator
+
+let ages=12
+let isStudent=ages>=18 ? print("true") : print("false")
+
+let hour = 22
+let isNight=hour>=18 ? print("night") : print("not night")
+
+let names=["eren","murat","kaplan"]
+let crewCount = names.isEmpty ? "no one" : "\(names.count) people"
+print(crewCount)
+
+enum Theme {
+    case light
+    case dark
+}
+let theme = Theme.dark
+let background = theme == .dark ? "black" : "white"
+print(background)
+
+
+
