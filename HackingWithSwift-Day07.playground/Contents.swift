@@ -87,3 +87,31 @@ let firstName = user.firstName
 let lastName = user.lastName
 
 print("Name: \(firstName) \(lastName)")
+func rollDice(sides: Int, count: Int) -> [Int] {
+    // Start with an empty array
+    var rolls = [Int]()
+
+    // Roll as many dice as needed
+    for _ in 1...count {
+        // Add each result to our array
+        let roll = Int.random(in: 1...sides)
+        rolls.append(roll)
+    }
+
+    // Send back all the rolls
+    return rolls
+}
+
+let rolls = rollDice(sides: 6, count: 4)
+
+func printTimesTables(for number: Int) {
+    for i in 1...12 {
+        print("\(i) x \(number) is \(i * number)")
+    }
+}
+
+printTimesTables(for: 5)
+
+//Yazıyoruz for number: Int: dış adı for, iç adı number, ve türü Int.
+//Fonksiyonu çağırdığımızda parametre için harici adı kullanırız: printTimesTables(for: 5).
+//Fonksiyonun içerisinde parametre için dahili ismi kullanıyoruz: print("\(i) x \(number) is \(i * number)").
