@@ -75,3 +75,15 @@ print(c)
 //func pythagoras(a: Double, b: Double) -> Double {
 //    sqrt(a * a + b * b)
 //}
+
+// F 1.3
+
+func getUser() -> (firstName: String, lastName: String) {
+    (firstName: "Taylor", lastName: "Swift")
+}
+
+let user = getUser()
+let firstName = user.firstName
+let lastName = user.lastName
+
+print("Name: \(firstName) \(lastName)")
