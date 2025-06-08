@@ -25,7 +25,7 @@ func karekokBul(sayi: Int) -> String {
 karekokBul(sayi: 169)
 */
 
-
+/*
 func karekokBul(sayi: Int) -> String {
     if sayi < 1 || sayi > 10_000 {
         return "Sınır dışı: 1-10000 arasında sayı girin"
@@ -42,3 +42,39 @@ func karekokBul(sayi: Int) -> String {
     return "\(sayi)'nin tam kare bir karekökü yok"
 }
 karekokBul(sayi: 169)
+*/
+
+
+
+// doğru çözüm
+enum KarekokHatasi: Error {
+    case sinirDisi
+    case tamKareDegil
+}
+
+func karekokBul(sayi: Int) throws -> Int {
+    if sayi < 1 || sayi > 10_000 {
+        throw KarekokHatasi.sinirDisi
+    }
+
+    for i in 1...sayi {
+        if i * i == sayi {
+            return i
+        } else if i * i > sayi {
+            break
+        }
+    }
+
+    throw KarekokHatasi.tamKareDegil
+}
+
+do {
+    let sonuc = try karekokBul(sayi: 160)
+    print("✅ Karekök: \(sonuc)")
+} catch KarekokHatasi.sinirDisi {
+    print("⚠️ Hata: Sayı 1 ile 10.000 arasında olmalı.")
+} catch KarekokHatasi.tamKareDegil {
+    print("❌ Hata: Sayı tam kare değil.")
+} catch {
+    print("🛑 Bilinmeyen bir hata oluştu: \(error)")
+}
