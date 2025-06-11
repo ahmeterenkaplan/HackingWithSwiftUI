@@ -162,3 +162,70 @@ print(tOnly)
 let uppercaseTeam = team.map { $0.uppercased() }
 print(uppercaseTeam)
 */
+
+
+// Closures pt.3
+func makeArray(size: Int, using generator: () -> Int) -> [Int] {
+    var numbers = [Int]()
+
+    for _ in 0..<size {
+        let newNumber = generator()
+        numbers.append(newNumber)
+    }
+
+    return numbers
+}
+/**
+ 
+ Bunu biraz açalım...
+
+ Fonksiyonun adı makeArray(). İki parametre alır, bunlardan biri istediğimiz tam sayı sayısıdır ve ayrıca bir tam sayı dizisi döndürür.
+ İkinci parametre bir fonksiyondur. Bu fonksiyon hiçbir parametre kabul etmez, ancak her çağrıldığında bir tam sayı döndürür.
+ İçeride makeArray()yeni bir boş tamsayı dizisi oluşturuyoruz, sonra istenildiği kadar döngüye giriyoruz.
+ Döngü her döndüğünde generatorparametre olarak geçirilen fonksiyonu çağırırız. Bu yeni bir tam sayı döndürecektir, bu yüzden bunu diziye koyarız numbers.
+ Son olarak tamamlanmış dizi döndürülür.
+ 'nin gövdesi makeArray()çoğunlukla basittir: bir tamsayı üretmek için bir fonksiyonu tekrar tekrar çağır, her değeri bir diziye ekle, sonra hepsini geri gönder.
+
+ Karmaşık kısım ise ilk satırda:
+
+ func makeArray(size: Int, using generator: () -> Int) -> [Int] {
+ Burada iki parantez kümesi ve iki dönüş türü kümesi var, bu yüzden ilk başta biraz karışık olabilir. Eğer bölerseniz doğrusal olarak okuyabilmelisiniz:
+
+ Yeni bir fonksiyon yaratıyoruz.
+ Fonksiyonun adı makeArray().
+ İlk parametre . adında bir tamsayıdır size.
+ İkinci parametre ise generatorhiçbir parametre kabul etmeyen ve bir tam sayı döndüren adlı bir fonksiyondur.
+ Bütün bunlar – makeArray()– tam sayılardan oluşan bir dizi döndürür.
+ Sonuç olarak artık her sayıyı üretmek için kullanılacak bir fonksiyonu geçirerek, keyfi büyüklükte tam sayı dizileri oluşturabiliriz:
+
+ let rolls = makeArray(size: 50) {
+     Int.random(in: 1...20)
+ }
+
+ print(rolls)
+ Ve unutmayın, aynı işlevsellik özel işlevlerle de çalışır, bu yüzden şöyle bir şey yazabiliriz:
+
+ func generateNumber() -> Int {
+     Int.random(in: 1...20)
+ }
+
+ let newRolls = makeArray(size: 50, using: generateNumber)
+ print(newRolls)
+ generateNumber()Diziyi doldurmak için 50 kez çağrı yapılacaktır .
+ */
+func doImportantWork(first: () -> Void, second: () -> Void, third: () -> Void) {
+    print("About to start first work")
+    first()
+    print("About to start second work")
+    second()
+    print("About to start third work")
+    third()
+    print("Done!")
+}
+doImportantWork {
+    print("This is the first work")
+} second: {
+    print("This is the second work")
+} third: {
+    print("This is the third work")
+}
