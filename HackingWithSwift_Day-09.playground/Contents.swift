@@ -229,3 +229,13 @@ doImportantWork {
 } third: {
     print("This is the third work")
 }
+
+var playWithDog = {
+    print("Fetch!")
+}
+func play(using playType: () -> Void) -> String {
+    print("Let's play a game")
+    playType()
+    return "sssss"
+}
+play(using: playWithDog)
